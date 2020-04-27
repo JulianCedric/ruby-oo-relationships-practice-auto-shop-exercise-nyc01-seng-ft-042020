@@ -20,9 +20,9 @@ class Mechanic
     end
   end 
 
-  def car_owners 
-    cars.map do |car|
-      car.car_owners 
+  def car_owners     
+    self.cars.map do |car|
+      car.car_owner 
     end
   end 
 

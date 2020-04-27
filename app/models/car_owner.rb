@@ -1,5 +1,4 @@
 class CarOwner
-
   attr_reader :name
 
   @@all = []
