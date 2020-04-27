@@ -4,7 +4,7 @@ class Car
 
   @@all = []
 
-  def initialize(make, model, classification, car_owner, mechanic)
+  def initialize(make, model, classification, car_owner)
     @car_owner = car_owner
     @mechanic = mechanic 
     @make = make
@@ -17,12 +17,15 @@ class Car
     @@all 
   end
 
-  def find_mechanics(classification)
-    specialized_mechanics = Mechanic.all.select do |mechanic|
-      mechanic.specialty == self.classification 
-    end
-    specialized_mechanics.map do |specialized_mechanic|
-      specialized_mechanic
+  def self.classifications
+    Car.all.map do |car|
+      car.classification 
+    end 
+  end 
+
+  def self.find_mechanics(classification)
+    Mechanic.all.select do |mechanic|
+      mechanic.specialty == classification 
     end
   end
 
